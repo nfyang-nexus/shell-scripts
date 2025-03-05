@@ -33,7 +33,8 @@ install_docker_ubuntu() {
     # 启动 Docker 并设置开机自启
     sudo systemctl enable docker
     sudo systemctl start docker
-
+    sudo usermod -aG docker $USER
+    newgrp docker
     # 检查 Docker 版本
     docker --version
 
